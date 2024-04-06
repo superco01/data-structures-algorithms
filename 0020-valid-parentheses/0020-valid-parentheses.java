@@ -1,17 +1,17 @@
 class Solution {
     public boolean isValid(String s) {
-        Map<Character, Character> charMap = Map.of(
-                '{', '}',
-                '[', ']',
-                '(', ')');
         Deque<Character> stack = new ArrayDeque<>();
-        for (Character ch : s.toCharArray()) {
-            if (stack.isEmpty() || charMap.containsKey(ch)) {
+        for (char ch : s.toCharArray()) {
+            if (ch == '(' || ch == '[' || ch == '{') {
                 stack.push(ch);
-            } else {
-                if (charMap.get(stack.peek()) == ch) {
-                    stack.pop();
-                } else {
+            } else if (ch == ')' || ch == ']' || ch == '}') {
+                if (stack.isEmpty()) {
+                    return false;
+                }
+                char top = stack.pop();
+                if ((ch == ')' && top != '(') ||
+                    (ch == ']' && top != '[') ||
+                    (ch == '}' && top != '{')) {
                     return false;
                 }
             }
