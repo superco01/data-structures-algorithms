@@ -1,18 +1,16 @@
 class Solution {
     public boolean isValid(String s) {
-        HashMap<Character, Character> charMap = new HashMap<>() {{
-                put('{', '}');
-                put('[', ']');
-                put('(', ')');
-        }};
+        char[] closingParentheses = new char[128];
+        closingParentheses[')'] = '(';
+        closingParentheses[']'] = '[';
+        closingParentheses['}'] = '{';
+
         Deque<Character> stack = new ArrayDeque<>();
-        for (Character ch : s.toCharArray()) {
-            if (stack.isEmpty() || charMap.containsKey(ch)) {
+        for (char ch : s.toCharArray()) {
+            if (closingParentheses[ch] == 0) {
                 stack.push(ch);
             } else {
-                if (charMap.get(stack.peek()) == ch) {
-                    stack.pop();
-                } else {
+                if (stack.isEmpty() || stack.pop() != closingParentheses[ch]) {
                     return false;
                 }
             }
