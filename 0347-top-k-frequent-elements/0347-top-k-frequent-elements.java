@@ -5,14 +5,13 @@ class Solution {
             map.compute(num , (key, value) -> value == null ? 1 : value + 1);
         }
 
-        PriorityQueue<Map.Entry<Integer, Integer>> maxHeap = new PriorityQueue<>(
-            (a, b) -> b.getValue() - a.getValue()
-        );
-        maxHeap.addAll(map.entrySet());
+        List<Map.Entry<Integer, Integer>> entryList = new ArrayList<>(map.entrySet());
+        
+        Collections.sort(entryList, (a, b) -> b.getValue() - a.getValue());
 
         int[] result = new int[k];
         for (int i = 0; i < k; i++) {
-            result[i] = maxHeap.poll().getKey();
+            result[i] = entryList.get(i).getKey();
         }
 
         return result;
