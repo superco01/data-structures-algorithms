@@ -1,10 +1,9 @@
 class Solution {
     public boolean isValid(String s) {
-        HashMap<Character, Character> charMap = new HashMap<>() {{
-                put('{', '}');
-                put('[', ']');
-                put('(', ')');
-        }};
+        Map<Character, Character> charMap = Map.of(
+                '{', '}',
+                '[', ']',
+                '(', ')');
         Deque<Character> stack = new ArrayDeque<>();
         for (Character ch : s.toCharArray()) {
             if (stack.isEmpty() || charMap.containsKey(ch)) {
