@@ -16,10 +16,9 @@ class Solution {
         while(l1 != null || l2 != null || carry != 0) {
             var value = (l1 != null ? l1.val : 0) + (l2 != null ? l2.val : 0);
             value += carry;
-            var digit = value % 10;
             carry = value / 10;
 
-            var newNode = new ListNode(digit);
+            var newNode = new ListNode(value % 10);
             currentNode.next = newNode;
             currentNode = newNode;
 
