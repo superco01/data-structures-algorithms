@@ -2,6 +2,8 @@ class Solution {
     public String longestPalindrome(String s) {
         for (int length = s.length(); length > 0; length--) {
             for (int start = 0; start <= s.length() - length; start++) {
+                // System.out.println(start + " - " + (start + length));
+                // System.out.println("length: " + length);
                 if (isPalindrome(start, start + length, s)) {
                     return s.substring(start, start + length);
                 }
