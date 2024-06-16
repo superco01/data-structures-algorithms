@@ -6,7 +6,6 @@ class Solution {
             charFrequencyMap.merge(c, 1, Integer::sum);
         }
 
-        System.out.println(charFrequencyMap);
         HashSet<Integer> set = new HashSet<>();
         int deletions = 0;
         for (int frequency : charFrequencyMap.values()) {
