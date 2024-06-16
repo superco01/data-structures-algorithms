@@ -15,8 +15,8 @@ class Solution {
             maxHeap.add(entry);
         }
 
-        System.out.println(charFreqMap);
-        System.out.println(maxHeap);
+        // System.out.println(charFreqMap);
+        // System.out.println(maxHeap);
 
         StringBuilder sb = new StringBuilder();
         while (!maxHeap.isEmpty()) {
