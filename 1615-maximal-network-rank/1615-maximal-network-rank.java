@@ -1,29 +1,30 @@
 class Solution {
     public int maximalNetworkRank(int n, int[][] roads) {
-        int[] degree = new int[n];
-        Set<String> roadSet = new HashSet<>();
+        int[] directConnectionToCity = new int[n];
+        boolean[][] isBothCitiesConnected = new boolean[n][n];
+        PriorityQueue<Map<Integer, Integer>> pqMax = 
+        new PriorityQueue<Map<Integer, Integer>>(Collections.reverseOrder());
 
         for (int[] road : roads) {
-            degree[road[0]]++;
-            degree[road[1]]++;
-            roadSet.add(road[0] + "," + road[1]);
-            roadSet.add(road[1] + "," + road[0]);
+            int cityA = road[0];
+            int cityB = road[1];
+            directConnectionToCity[cityA]++;
+            directConnectionToCity[cityB]++;
+            isBothCitiesConnected[cityA][cityB] = true;
+            isBothCitiesConnected[cityB][cityA] = true;
         }
 
-        int maxRank = 0;
+        int maxNetworkRank = 0;
         for (int i = 0; i < n; i++) {
             for (int j = i + 1; j < n; j++) {
-                int rank = degree[i] + degree[j];
-                if (roadSet.contains(i + "," + j)) {
-                    rank--;
+                int currentRank = directConnectionToCity[i] + directConnectionToCity[j];
+                if (isBothCitiesConnected[i][j]) {
+                    currentRank--;
                 }
-                maxRank = Math.max(maxRank, rank);
+                maxNetworkRank = Math.max(maxNetworkRank, currentRank);
             }
         }
 
-        System.out.println(roadSet);
-        System.out.println(Arrays.toString(degree));
-
-        return maxRank;
+        return maxNetworkRank;
     }
 }
