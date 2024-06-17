@@ -5,9 +5,6 @@ class Solution {
         while (aBase <= bBase) {
             var a = Math.pow(aBase, 2);
             var b = Math.pow(bBase, 2);
-            System.out.println(a);
-            System.out.println(b);
-            System.out.println("----");
             if (a + b == c) {
                 return true;
             } 
