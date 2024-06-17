@@ -3,12 +3,10 @@ class Solution {
         int aBase = 0;
         int bBase = (int) Math.sqrt(Double.valueOf(c)); 
         while (aBase <= bBase) {
-            var a = Math.pow(aBase, 2);
-            var b = Math.pow(bBase, 2);
-            if (a + b == c) {
+            if (Math.pow(aBase, 2) + Math.pow(bBase, 2) == c) {
                 return true;
             } 
-            else if (a + b > c) {
+            else if (Math.pow(aBase, 2) + Math.pow(bBase, 2) > c) {
                 bBase--;
             } else {
                 aBase++;
