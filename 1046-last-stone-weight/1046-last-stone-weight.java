@@ -6,8 +6,6 @@ class Solution {
             pq.add(stone);
         }
 
-        System.out.println(pq);
-
         int result = 0;
         while (!pq.isEmpty()) {
             int firstStone = pq.poll();
