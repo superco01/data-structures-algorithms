@@ -18,10 +18,8 @@ class Solution {
             excess = 0;
             if (sum >= 10) {
                 excess = sum / 10;
-                result.next = new ListNode(sum % 10);
-            } else {
-                result.next = new ListNode(sum);
             }
+            result.next = new ListNode(sum % 10);
             l1 = l1 == null ? null : l1.next;
             l2 = l2 == null ? null : l2.next;
             result = result.next;
