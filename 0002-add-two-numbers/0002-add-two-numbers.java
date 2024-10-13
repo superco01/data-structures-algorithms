@@ -11,7 +11,7 @@
 class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         var result = new ListNode();
-        var temp = new ListNode(0, result);
+        var temp = result;
         var excess = 0;
         while (l1 != null || l2 != null || excess != 0) {
             var sum = (l1 == null ? 0 : l1.val) + (l2 == null ? 0 : l2.val) + excess;
@@ -25,6 +25,6 @@ class Solution {
             result = result.next;
         }
 
-        return temp.next.next;
+        return temp.next;
     }
 }
