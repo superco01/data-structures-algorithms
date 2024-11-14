@@ -22,7 +22,6 @@ class Solution {
             currNode.next = prevNode;
             prevNode = currNode;
             currNode = tempNextNode;
-            System.out.println(currNode.val);
         }
 
         if (currNode.next == null) {
