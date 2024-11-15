@@ -15,19 +15,24 @@ class Solution {
         ListNode tempHead = head;
         ListNode forw = null;
         ListNode prev = dummy;
+        ListNode result = head;
+        boolean toggle = true;
         while (curr != null) {
             System.out.println("curr.val: " + curr.val);
-            System.out.println("curr.next.val: " + curr.next.val);
             if (curr.next == null) {
                 break;
             }
             forw = curr.next.next;
             curr.next.next = curr;
-            prev = curr.next;
+            prev.next = curr.next;
+            prev = curr;
+            if (toggle) result = curr.next;
             curr.next = forw;
-            curr = forw;
+            curr = curr.next;
+            toggle = false;
+            // System.out.println("result.next.val: " + result.next.val);
         }
 
-        return dummy.next;
+        return result;
     }
 }
