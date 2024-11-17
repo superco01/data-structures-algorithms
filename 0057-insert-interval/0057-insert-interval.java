@@ -9,10 +9,10 @@ class Solution {
         for (int i = 1; i < intervalList.size(); i++) {
             int[] curr = intervalList.get(i);
             if (prev[1] >= curr[0]) {
-                System.out.println("if");
+                // System.out.println("if");
                 prev[1] = Math.max(prev[1], curr[1]);
             } else {
-                System.out.println("else");
+                // System.out.println("else");
                 result.add(prev);
                 prev = curr;
             }
