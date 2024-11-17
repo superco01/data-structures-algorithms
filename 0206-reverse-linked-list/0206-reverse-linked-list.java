@@ -18,7 +18,7 @@ class Solution {
         if (null == head) {
             return head;
         }
-        
+
         while (currNode.next != null) {
             tempNextNode = currNode.next;
             currNode.next = prevNode;
