@@ -23,12 +23,9 @@ class Solution {
             return result;
         }
 
-        System.out.println(set);
-
         Iterator iterator = set.iterator(); 
         iterator.next();
         return (int) iterator.next();
-        // return set.get(2);
     }
 
     private void traverse(Set<Integer> set, TreeNode root) {
