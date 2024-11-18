@@ -15,25 +15,25 @@
  */
 class Solution {
     private static final String ARROW = "->";
-    private List<String> result = new ArrayList<>();
+    // private List<String> result = new ArrayList<>();
 
     public List<String> binaryTreePaths(TreeNode root) {
-        // List<String> result = new ArrayList<>();
+        List<String> result = new ArrayList<>();
         String path = "" + root.val;
-        traverse(path, root);
+        traverse(result, path, root);
 
         return result;
     }
 
-    private void traverse(String path, TreeNode root) {
+    private void traverse(List<String> result, String path, TreeNode root) {
         if (root != null) {
             if (root.left != null) {
                 String newPath = path + ARROW + root.left.val;
-                traverse(newPath, root.left);
+                traverse(result, newPath, root.left);
             } 
             if (root.right != null) {
                 String newPath = path + ARROW + root.right.val;
-                traverse(newPath, root.right);
+                traverse(result, newPath, root.right);
             } 
             if (root.right == null && root.left == null) {
                 result.add(path);
