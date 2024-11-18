@@ -33,7 +33,6 @@ class Solution {
             } 
             if (root.right != null) {
                 String newPath = path + ARROW + root.right.val;
-        System.out.println(newPath);
                 traverse(newPath, root.right);
             } 
             if (root.right == null && root.left == null) {
