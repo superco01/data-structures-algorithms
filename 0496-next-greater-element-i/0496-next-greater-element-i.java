@@ -8,7 +8,7 @@ class Solution {
                 if (found) {
                     System.out.println(nums2[j]);
                     if (nums2[j] > nums1[i]) {
-                        System.out.println("here: " + nums1[i]);
+                        // System.out.println("here: " + nums1[i]);
                         result[i] = nums2[j];
                         break;
                     }
@@ -17,7 +17,7 @@ class Solution {
                     found = true;
                 }
             }
-            System.out.println("====");
+            // System.out.println("====");
             if (result[i] == 0) {
                 result[i] = -1;
             }
