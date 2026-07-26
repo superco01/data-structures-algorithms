@@ -3,7 +3,6 @@ class Solution {
         var countMap = new HashMap<Integer, Integer>();
         for (int i = 0; i < nums.length; i++) {
             var count = countMap.get(nums[i]);
-            System.out.println(count);
             if (count != null) {
                 return true;
             }
