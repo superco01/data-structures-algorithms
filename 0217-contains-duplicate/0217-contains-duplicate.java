@@ -2,11 +2,13 @@ class Solution {
     public boolean containsDuplicate(int[] nums) {
         var countMap = new HashMap<Integer, Integer>();
         for (int i = 0; i < nums.length; i++) {
-            var count = countMap.get(nums[i]);
-            if (count != null) {
+            countMap.put(nums[i], countMap.getOrDefault(nums[i], 0) + 1);
+        }
+
+        for (int count : countMap.values()) {
+            if (count > 1) {
                 return true;
             }
-            countMap.put(nums[i], 1);
         }
 
         return false;
